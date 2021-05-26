@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocem/routes/pagination.dart';
 
 import 'screens/screens_index.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Auth(),
+      home: Pagination(),
     );
   }
 }
