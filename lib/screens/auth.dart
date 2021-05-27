@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:vocem/custom_widgets/custom_widgets_index.dart';
+import 'package:vocem/routes/pagination.dart';
 import 'package:vocem/screens/screens_index.dart';
 
 import '../global_vars.dart';
@@ -89,7 +90,7 @@ class _AuthState extends State<Auth> {
     print("SignIn");
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => HomePage()),
+      MaterialPageRoute(builder: (context) => Pagination()),
           (Route<dynamic> route) => false,
     );
   }

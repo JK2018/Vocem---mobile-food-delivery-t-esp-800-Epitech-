@@ -12,14 +12,14 @@ import 'global_vars.dart';
 
 
 // Create a Form widget.
-class MyCustomForm extends StatefulWidget {
+class MyLoginForm extends StatefulWidget {
   @override
   MyCustomFormState createState() {
     return MyCustomFormState();
   }
 }
 
-class MyCustomFormState extends State<MyCustomForm> {
+class MyCustomFormState extends State<MyLoginForm> {
   final _formKey = GlobalKey<FormState>();
   bool isChecked = false;
 
