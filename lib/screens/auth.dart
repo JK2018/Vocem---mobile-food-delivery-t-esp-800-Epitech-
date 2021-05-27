@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:vocem/custom_widgets/custom_widgets_index.dart';
 import 'package:vocem/screens/screens_index.dart';
 
+import '../global_vars.dart';
+
 class Auth extends StatefulWidget {
   @override
   _AuthState createState() => _AuthState();
@@ -31,13 +33,13 @@ class _AuthState extends State<Auth> {
                 alignment: WrapAlignment.center,
                 children: [
                   Text("Vocem",
-                  style: TextStyle(color: Colors.white,fontSize: 35, fontWeight: FontWeight.bold),),
+                  style: TextStyle(color: c4,fontSize: 35, fontWeight: FontWeight.bold),),
                   Image.asset('assets/images/vocem_logo.png',width: 50,height: 50,),
                   InputCustom(
                     width: 300,
                     showText: false,
                     placeholder: "Email",
-                    backgroundColor: Colors.white,
+                    backgroundColor: c4, // Colors.white,
                     controller: usernameController,
                     keyboardType: TextInputType.text,
                   ),
@@ -45,7 +47,7 @@ class _AuthState extends State<Auth> {
                     width: 300,
                     showText: false,
                     placeholder: "Password",
-                    backgroundColor: Colors.white,
+                    backgroundColor: c4, // Colors.white,
                     controller: pwdController,
                     keyboardType: TextInputType.text,
                   ),
@@ -53,14 +55,14 @@ class _AuthState extends State<Auth> {
                     width: 300,
                     textBtn: "Connexion",
                     iconName: Icons.person,
-                    btnColor: Colors.white,
+                    btnColor: c4, // Colors.white,
                     textColor: Colors.black,
                     onPress: signIn,
                   ) : BtnCustom(
                     width: 300,
                     textBtn: "Inscription",
                     iconName: Icons.person,
-                    btnColor: Colors.white,
+                    btnColor: c4, // Colors.white,
                     textColor: Colors.black,
                     onPress: (){print("SignUp");},
                   ),
@@ -70,9 +72,9 @@ class _AuthState extends State<Auth> {
                     });},
                     child: signInOrUp ?
                     Text("Taper ici pour créer son compte",
-                    style: TextStyle(color: Colors.white,decoration: TextDecoration.underline)):
+                    style: TextStyle(color: c4,decoration: TextDecoration.underline)):
                    Text("Taper ici pour vous connectez",
-                    style: TextStyle(color: Colors.white,decoration: TextDecoration.underline)),
+                    style: TextStyle(color: c4,decoration: TextDecoration.underline)),
                   ),
                 ],
               ),

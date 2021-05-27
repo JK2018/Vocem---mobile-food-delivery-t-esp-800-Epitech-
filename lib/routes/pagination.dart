@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vocem/screens/screens_index.dart';
 
+import '../global_vars.dart';
+
 class Pagination extends StatefulWidget {
   @override
   _PaginationState createState() => _PaginationState();
@@ -30,22 +32,22 @@ class _PaginationState extends State<Pagination> {
            BottomNavigationBarItem(
              icon: Icon(Icons.home_outlined),
              label: "Home",
-             backgroundColor: Colors.deepPurple,
+             backgroundColor: c1, // Colors.deepPurple,
            ),
            BottomNavigationBarItem(
              icon: Icon(Icons.search),
              label: "Search",
-             backgroundColor: Colors.deepPurple,
+             backgroundColor: c1, // Colors.deepPurple,
            ),
            BottomNavigationBarItem(
              icon: Icon(Icons.list_alt_outlined),
              label: "Commandes",
-             backgroundColor: Colors.deepPurple
+             backgroundColor: c1, // Colors.deepPurple
            ),
            BottomNavigationBarItem(
              icon: Icon(Icons.account_circle),
              label: "Profil",
-             backgroundColor: Colors.deepPurple
+             backgroundColor: c1, // Colors.deepPurple
            ),
         ],
         onTap: (index){
