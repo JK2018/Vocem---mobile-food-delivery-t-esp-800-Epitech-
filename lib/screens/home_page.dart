@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           child: CustomCard(
                             height: 110,
                             text: "MacDo",
-                            icon: Icons.food_bank_outlined,
+                            img: "https://www.sohealthy.fr/wp-content/uploads/2017/06/mcdo-calories-menu-770x560.jpg",
                             cardColor: c4, // Colors.white,
                             onTap: (){
                               print("show album details");
@@ -93,10 +93,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.search),
+        child: Icon(Icons.shopping_cart_outlined),
         backgroundColor: Colors.black,
         onPressed: (){
-          print("search app");
+          print("To cart");
           //details pages
         },
       ),

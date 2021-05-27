@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vocem/screens/screens_index.dart';
-
 import '../global_vars.dart';
-import '../loginPage.dart';
+
 
 class Pagination extends StatefulWidget {
   @override
@@ -16,15 +15,9 @@ class _PaginationState extends State<Pagination> {
     Center(child: HomePage()),
     Center(child: Text("2")),
     Center(child: Text("3")),
-    Center(child: Container(
-      child: ElevatedButton(
-      child: Text('Please Log In'),
-      onPressed: () {
+    Center( child: Text('Please Log In'),
+    )];
 
-      },
-      )
-    ),
-  )];
 
   @override
   Widget build(BuildContext context) {
