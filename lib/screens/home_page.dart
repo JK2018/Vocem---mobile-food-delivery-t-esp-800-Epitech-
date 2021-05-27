@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:vocem/custom_widgets/custom_widgets_index.dart';
 
 import '../global_vars.dart';
+import 'cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -96,11 +97,18 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.shopping_cart_outlined),
         backgroundColor: Colors.black,
         onPressed: (){
-          print("To cart");
+          navigateToCart(context);
           //details pages
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+}
+
+
+
+
+Future navigateToCart(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
 }
