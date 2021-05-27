@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:vocem/custom_widgets/custom_widgets_index.dart';
 import 'package:vocem/routes/pagination.dart';
-import 'package:vocem/screens/screens_index.dart';
-
 import '../global_vars.dart';
 
 class Cart extends StatefulWidget {
@@ -25,7 +22,7 @@ class _CartState extends State<Cart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 45.0,),
-            Text("Shopping Cart",
+            Text("Panier",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 21.0,
@@ -97,10 +94,10 @@ class _CartState extends State<Cart> {
               ),),),
             SizedBox(height: 18.0,),
 
-
+            //Pagination(),
           ],
       ),
-      )
+      ),
     );
   }
 

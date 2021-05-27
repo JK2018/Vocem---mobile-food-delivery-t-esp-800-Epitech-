@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocem/screens/cart.dart';
 import 'package:vocem/screens/screens_index.dart';
 import '../global_vars.dart';
 
@@ -15,8 +16,8 @@ class _PaginationState extends State<Pagination> {
     Center(child: HomePage()),
     Center(child: Text("2")),
     Center(child: Text("3")),
-    Center( child: Text('Please Log In'),
-    )];
+    Center(child: Text('Please Log In')),
+  ];
 
 
   @override
@@ -50,6 +51,7 @@ class _PaginationState extends State<Pagination> {
              label: "Profil",
              backgroundColor: c1, // Colors.deepPurple
            ),
+
         ],
         onTap: (index){
           setState(() {
