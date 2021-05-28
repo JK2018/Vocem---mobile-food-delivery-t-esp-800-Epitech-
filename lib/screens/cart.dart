@@ -25,6 +25,7 @@ class _CartState extends State<Cart> {
           color: Colors.black,
         ),
         backgroundColor: Colors.white,
+        elevation: 1,
       ),
       backgroundColor: c4,
       body: Padding(

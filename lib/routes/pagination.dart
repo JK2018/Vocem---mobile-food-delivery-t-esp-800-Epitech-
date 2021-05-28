@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vocem/screens/cart.dart';
+import 'package:vocem/screens/edit_profile_page.dart';
 import 'package:vocem/screens/screens_index.dart';
 import '../global_vars.dart';
 
@@ -16,7 +17,7 @@ class _PaginationState extends State<Pagination> {
     Center(child: HomePage()),
     Center(child: Text("2")),
     Center(child: OrdersPage()),
-    Center( child: Text('Please Log In'),
+    Center(child: EditProfilePage(),
     )];
 
 
