@@ -16,6 +16,16 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Panier",
+        style: TextStyle(
+          color: Colors.black,
+        ),),
+        leading: BackButton(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: c4,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

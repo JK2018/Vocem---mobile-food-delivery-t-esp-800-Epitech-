@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           ],
           ),
         ),
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.white,
         elevation: 1,
       ),
       backgroundColor: Colors.white,
