@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey[200],
         elevation: 1,
       ),
-      backgroundColor: c3,//Colors.deepPurple[100],
+      backgroundColor: Colors.white,
       body: !noData ? Center(child: Text("Prenez une photo", style: TextStyle(fontSize: 20),))
       : Padding(
         padding: const EdgeInsets.all(8.0),

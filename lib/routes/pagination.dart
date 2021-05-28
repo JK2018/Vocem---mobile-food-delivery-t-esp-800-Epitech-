@@ -15,9 +15,9 @@ class _PaginationState extends State<Pagination> {
   final tabs = [
     Center(child: HomePage()),
     Center(child: Text("2")),
-    Center(child: Text("3")),
-    Center(child: Text('Please Log In')),
-  ];
+    Center(child: OrdersPage()),
+    Center( child: Text('Please Log In'),
+    )];
 
 
   @override
