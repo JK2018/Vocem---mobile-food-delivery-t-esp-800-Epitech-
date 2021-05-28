@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../global_vars.dart';
 
+
+
+
+
 class EditProfilePage extends StatefulWidget {
   EditProfilePage({Key key}) : super(key: key);
   @override
@@ -10,6 +14,7 @@ class EditProfilePage extends StatefulWidget {
 
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +36,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: (
             ListView(
               children: [
-                Text("Modifier Profile",
+                Text("Edition Profile",
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
                 SizedBox(height: 20,),
                 Center(
@@ -73,6 +78,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 buildTextField("Email", "gros_muscles@guns.com",false),
                 buildTextField("Mot de passe", "*********",true),
                 buildTextField("Localisation", "Paris, France",false),
+                SizedBox(height: 35,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // ignore: deprecated_member_use
+                    RaisedButton(
+                      color: c6,
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        onPressed: (){},
+                      child: Text("ANNULER",
+                        style: TextStyle(fontSize: 14, letterSpacing: 2.2, color: Colors.black),),
+                    ),
+                    // ignore: deprecated_member_use
+                    RaisedButton(
+                        onPressed: (){},
+                        color: c2,
+                        elevation: 2,
+                        padding: EdgeInsets.symmetric(horizontal: 50),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        child: Text(
+                          "VALIDER",
+                          style: TextStyle(fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+                        )
+                    ),
+                  ],
+                )
               ],
             )
           ),
@@ -80,30 +112,42 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
     );
   }
-}
 
 
-Padding buildTextField(String labelText, String placeholder, bool isPasswordTextField){
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 35.0),
-    child: TextField(
-      obscureText: isPasswordTextField,
-      decoration: InputDecoration(
-          suffixIcon: isPasswordTextField ? IconButton(
-              icon: Icon(Icons.remove_red_eye, color: c1,),
-              onPressed: (){}) : null,
-          contentPadding: EdgeInsets.only(bottom: 3),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          labelText: labelText,
-          hintText: placeholder,
-          hintStyle: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )
+
+
+
+  Widget buildTextField(String labelText, String placeholder, bool isPasswordTextField){
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 35.0),
+      child: TextField(
+        obscureText: isPasswordTextField ? !showPassword : true,
+        decoration: InputDecoration(
+            suffixIcon: isPasswordTextField ? IconButton(
+                icon: Icon(Icons.remove_red_eye, color: c1,),
+                onPressed: () {
+                  setState((){
+                    showPassword = !showPassword;
+                  });
+                }) : null,
+            contentPadding: EdgeInsets.only(bottom: 3),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            labelText: labelText,
+            hintText: placeholder,
+            hintStyle: TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )
+        ),
       ),
-    ),
-  );
+    );
+  }
+
+
 }
+
+
+
 
 
 
