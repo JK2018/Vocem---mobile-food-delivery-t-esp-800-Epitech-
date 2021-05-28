@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocem/screens/settings_page.dart';
 
 import '../global_vars.dart';
 
@@ -26,7 +27,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
-          IconButton(icon: Icon(Icons.settings, color: c1,), onPressed: (){})
+          IconButton(icon: Icon(Icons.settings, color: c1,), onPressed: (){
+            navigateToSettings(context);
+          })
         ],
       ),
       body: Container(
@@ -80,17 +83,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 buildTextField("Localisation", "Paris, France",false),
                 SizedBox(height: 35,),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // ignore: deprecated_member_use
-                    RaisedButton(
-                      color: c6,
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                        onPressed: (){},
-                      child: Text("ANNULER",
-                        style: TextStyle(fontSize: 14, letterSpacing: 2.2, color: Colors.black),),
-                    ),
                     // ignore: deprecated_member_use
                     RaisedButton(
                         onPressed: (){},
@@ -99,7 +93,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         padding: EdgeInsets.symmetric(horizontal: 50),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         child: Text(
-                          "VALIDER",
+                          "ENREGISTRER",
                           style: TextStyle(fontSize: 14, letterSpacing: 2.2, color: Colors.white),
                         )
                     ),
@@ -147,7 +141,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
 }
 
 
-
+Future navigateToSettings(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+}
 
 
 
