@@ -1,6 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:vocem/screens/settings_page.dart';
-
+import 'package:image_picker/image_picker.dart';
 import '../global_vars.dart';
 
 
@@ -15,7 +17,18 @@ class EditProfilePage extends StatefulWidget {
 
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  final picker = ImagePicker();
   bool showPassword = false;
+  String profileImage = "https://cdn.pixabay.com/photo/2018/08/27/15/45/cat-3635300_1280.jpg";
+
+  Future changeProfileImage() async {
+    setState(() {
+      // select pic from gallery and asign it to profileImage
+      profileImage = "https://cdn.pixabay.com/photo/2019/11/11/05/31/profanity-4617257_1280.jpg";
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,18 +73,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage("https://cdn.pixabay.com/photo/2018/08/27/15/45/cat-3635300_1280.jpg")
+                            image: NetworkImage(profileImage)
                           )
                         ),
                       ),
-                      Positioned(bottom: 0, right: 0,child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            color: c2,
-                            shape: BoxShape.circle,
-                            border: Border.all(width: 4, color: Theme.of(context).scaffoldBackgroundColor,)),
-                        child: Icon(Icons.edit, color: Colors.white,),
+                      Positioned(bottom: 0, right: 0,child:
+                      GestureDetector(
+                        onTap: (){
+                          changeProfileImage();
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              color: c2,
+                              shape: BoxShape.circle,
+                              border: Border.all(width: 4, color: Theme.of(context).scaffoldBackgroundColor,)),
+                          child: Icon(Icons.edit, color: Colors.white,),
+                        ),
                       ))
                     ],
                   ),
@@ -127,16 +146,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
             contentPadding: EdgeInsets.only(bottom: 3),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelText: labelText,
+            labelStyle: TextStyle(
+                color: c2,
+              fontWeight: FontWeight.bold
+            ),
             hintText: placeholder,
             hintStyle: TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold,
               color: Colors.black,
-            )
+            ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: c2, width: 3),
+            //  when the TextFormField in focused
+          ) ,
         ),
       ),
     );
   }
-
 
 }
 
@@ -144,6 +170,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
 Future navigateToSettings(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
 }
+
+
 
 
 
