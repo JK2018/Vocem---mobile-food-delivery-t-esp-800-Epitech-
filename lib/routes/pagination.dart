@@ -13,8 +13,8 @@ class _PaginationState extends State<Pagination> {
   int _currentIndex = 0;
 
   final tabs = [
-    //Center(child: HomePage()),
-    Center(child: DetailsPage()),
+    Center(child: HomePage()),
+    //Center(child: DetailsPage()),
     Center(child: SearchPage()),
     Center(child: OrdersPage()),
     Center(child: EditProfilePage(),

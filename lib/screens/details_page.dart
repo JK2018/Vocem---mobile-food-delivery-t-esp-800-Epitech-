@@ -10,12 +10,13 @@ class DetailsPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+
         backgroundColor: Colors.deepPurple[300],
         elevation: 0,
         leading: IconButton(
           //icon: SvgPicture.asset("assets/images/menu.svg"),
           icon: Icon(Icons.arrow_back_ios_outlined),
-          onPressed: ()=>print("salut"),
+          onPressed: ()=>Navigator.of(context).pop(),
         ),
       ),
       body: Column(
@@ -89,7 +90,6 @@ class DetailsPage extends StatelessWidget {
           Flexible(
             flex: 6,
             child: Container(
-              height: size.height-(size.height*0.5),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
