@@ -1,5 +1,7 @@
 
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:vocem/screens/settings_page.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,10 +24,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
   String profileImage = "https://cdn.pixabay.com/photo/2018/08/27/15/45/cat-3635300_1280.jpg";
 
   Future changeProfileImage() async {
+    profileImage = _getFromGallery();
     setState(() {
-      // select pic from gallery and asign it to profileImage
-      profileImage = "https://cdn.pixabay.com/photo/2019/11/11/05/31/profanity-4617257_1280.jpg";
-    });
+      profileImage;
+      });
   }
 
 
@@ -80,6 +82,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       Positioned(bottom: 0, right: 0,child:
                       GestureDetector(
                         onTap: (){
+                          _getFromGallery();
                           changeProfileImage();
                         },
                         child: Container(
@@ -164,6 +167,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
+}
+
+
+_getFromGallery() async {
+  PickedFile pickedFile = await ImagePicker().getImage(
+    source: ImageSource.gallery,
+    maxWidth: 1800,
+    maxHeight: 1800,
+  );
+  if (pickedFile != null) {
+    File imageFile = File(pickedFile.path);
+  }
 }
 
 
