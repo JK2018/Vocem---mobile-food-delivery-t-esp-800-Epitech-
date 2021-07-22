@@ -15,7 +15,7 @@ class _PaginationState extends State<Pagination> {
 
   final tabs = [
     Center(child: HomePage()),
-    Center(child: Text("2")),
+    Center(child: SearchPage()),
     Center(child: OrdersPage()),
     Center(child: EditProfilePage(),
     )];
