@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../global_vars.dart';
+import '../global_vars.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -33,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey[500]
+                color: c2
             ),),
           Container(
             margin: EdgeInsets.only(top: 8, bottom: 12),
@@ -89,12 +92,26 @@ class _HomePageState extends State<HomePage> {
 
                       buildRestoPicture(urlImg),
                       SizedBox(height: 5,),
-                      Text("963 likes",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[800]
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("963 likes",
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[800]
+                          ),
+                          ),
+                          CircleAvatar(
+                            backgroundColor: c2,
+                            child: Text("4.8",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              color: Colors.white
+                            ),),
+                          )
+                        ],
                       ),
                       SizedBox(height: 8,),
 
@@ -177,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.red
+                  color: c2
                 ),
                 child: CircleAvatar(
                   radius: 18,
