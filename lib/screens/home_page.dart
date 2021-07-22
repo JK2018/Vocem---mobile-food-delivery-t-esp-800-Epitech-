@@ -70,10 +70,121 @@ class _HomePageState extends State<HomePage> {
                 buildFoodCategoryAvatar("https://cdn.pixabay.com/photo/2018/02/25/11/17/wine-3180220_960_720.jpg"),
 
             ],),
-          )
+          ),
+            Container(
+              height: 2,
+              color: Colors.grey[300],
+              margin: EdgeInsets.symmetric(horizontal: 30),
+            ),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.only(top: 8),
+                children: [
+                  buildRestoCard("https://cdn.pixabay.com/photo/2015/03/01/20/08/new-york-655215_960_720.jpg"),
+                  buildRestoCard("https://cdn.pixabay.com/photo/2015/11/23/19/20/glass-1058878_960_720.jpg"),
+                  buildRestoCard("https://cdn.pixabay.com/photo/2021/02/17/15/01/comida-6024545_960_720.jpg"),
+                ],
+              ),
+            )
         ],),
       ),
     );
+  }
+
+  Container buildRestoCard(String urlImg) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 8),
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildRestoRow(),
+                      SizedBox(height: 10,),
+
+                      buildRestoPicture(urlImg),
+                      SizedBox(height: 5,),
+                      Text("963 likes",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[800]
+                      ),
+                      ),
+                      SizedBox(height: 8,),
+
+                ],),);
+  }
+
+  Row buildRestoRow() {
+    return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                radius: 15,
+                                backgroundImage: NetworkImage("https://cdn.pixabay.com/photo/2014/07/08/13/43/donalds-387237_960_720.jpg"),
+                              ),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("macdo",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  Text("fastfood",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      color: Colors.grey[500]
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          Icon(Icons.more_vert)
+                        ],
+                      );
+  }
+
+  Stack buildRestoPicture(urlImg) {
+    return Stack(
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.width-50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.3),
+                                  spreadRadius: 2,
+                                  blurRadius: 20,
+                                  offset: Offset(0,10),
+                                )
+                              ],
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                  image: NetworkImage(urlImg))
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 20,
+                            right: 20,
+                              child: Icon(
+                                Icons.favorite,
+                                size: 35,
+                                color: Colors.white.withOpacity(0.9),))
+                        ],
+                      );
   }
 
   Container buildFoodCategoryAvatar( String url) {
