@@ -198,10 +198,10 @@ class _AuthState extends State<Auth> {
       password=pwdController.text;
     });
     print("SignIn");
-    // Navigator.pushAndRemoveUntil(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => Pagination()),
-    //       (Route<dynamic> route) => false,
-    // );
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => Pagination()),
+          (Route<dynamic> route) => false,
+    );
   }
 }
