@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../global_vars.dart';
 import '../global_vars.dart';
+import '../global_vars.dart';
+import 'cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,9 +19,28 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Container(
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Vocem",style: TextStyle(color: Colors.black, fontSize: 17),),
-              Icon(Icons.mic_external_on,color: Colors.black,size: 19,)
+              Row(
+                children: [
+                  Text("Vocem",style: TextStyle(color: Colors.black, fontSize: 17),),
+                  Icon(Icons.mic_external_on,color: Colors.black,size: 19,)
+                ],
+              ),
+              RawMaterialButton(
+                onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Cart()),
+                );},
+                elevation: 2.0,
+                fillColor: c2,
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 27.0,
+                ),
+                padding: EdgeInsets.all(8.0),
+                shape: CircleBorder(),
+              )
             ],
           ),
         ),
