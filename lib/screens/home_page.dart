@@ -97,46 +97,54 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container buildRestoCard(String urlImg, String restoName, String restoLogo) { //add resto object ass param instead
-    return Container(
-      margin: EdgeInsets.only(bottom: 8),
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      buildRestoRow(restoName , restoLogo ),
-                      SizedBox(height: 10,),
+   buildRestoCard(String urlImg, String restoName, String restoLogo) { //add resto object ass param instead
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Cart()),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 8),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        buildRestoRow(restoName , restoLogo ),
+                        SizedBox(height: 10,),
 
-                      buildRestoPicture(urlImg),
-                      SizedBox(height: 5,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("963 likes",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[800]
-                          ),
-                          ),
-                          CircleAvatar(
-                            backgroundColor: c2,
-                            child: Text("4.8",
+                        buildRestoPicture(urlImg),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("963 likes",
                             style: TextStyle(
+                              fontSize: 17,
                               fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Colors.white
-                            ),),
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 8,),
+                              color: Colors.grey[800]
+                            ),
+                            ),
+                            CircleAvatar(
+                              backgroundColor: c2,
+                              child: Text("4.8",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: Colors.white
+                              ),),
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 8,),
 
-                ],),);
+                  ],),),
+    );
   }
 
   Row buildRestoRow( String restoName, String restoLogo) {
