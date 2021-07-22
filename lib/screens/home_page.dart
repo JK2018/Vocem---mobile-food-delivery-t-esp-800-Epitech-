@@ -41,25 +41,7 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-              Stack(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 30,
-                    backgroundImage: NetworkImage("https://cdn.pixabay.com/photo/2018/05/21/23/05/pommes-3419957_960_720.png"),
-                  ),
-                  Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: CircleAvatar(
-                        radius: 10,
-                        child: Icon(
-                          Icons.add,
-                          size: 15,
-                        ),
-                      ))
-                ]
-              ),
+
                 buildFoodCategoryAvatar("https://cdn.pixabay.com/photo/2018/05/21/23/05/pommes-3419957_960_720.png"),
                 buildFoodCategoryAvatar("https://cdn.pixabay.com/photo/2015/11/02/20/27/taco-1018962_960_720.jpg"),
                 buildFoodCategoryAvatar("https://cdn.pixabay.com/photo/2018/08/03/08/33/food-3581341_960_720.jpg"),
@@ -80,9 +62,9 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 padding: EdgeInsets.only(top: 8),
                 children: [
-                  buildRestoCard("https://cdn.pixabay.com/photo/2015/03/01/20/08/new-york-655215_960_720.jpg"),
-                  buildRestoCard("https://cdn.pixabay.com/photo/2015/11/23/19/20/glass-1058878_960_720.jpg"),
-                  buildRestoCard("https://cdn.pixabay.com/photo/2021/02/17/15/01/comida-6024545_960_720.jpg"),
+                  buildRestoCard("https://cdn.pixabay.com/photo/2015/03/01/20/08/new-york-655215_960_720.jpg", "McDonalds", "https://cdn.pixabay.com/photo/2014/07/08/13/43/donalds-387237_960_720.jpg"),
+                  buildRestoCard("https://cdn.pixabay.com/photo/2015/11/23/19/20/glass-1058878_960_720.jpg", "Starbucks", "https://cdn.pixabay.com/photo/2017/05/26/15/02/starbucks-2346226_960_720.jpg"),
+                  buildRestoCard("https://cdn.pixabay.com/photo/2021/02/17/15/01/comida-6024545_960_720.jpg", "Burger King", "https://cdn.pixabay.com/photo/2021/03/09/14/20/advertising-6081989_960_720.jpg"),
                 ],
               ),
             )
@@ -91,7 +73,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container buildRestoCard(String urlImg) {
+  Container buildRestoCard(String urlImg, String restoName, String restoLogo) { //add resto object ass param instead
     return Container(
       margin: EdgeInsets.only(bottom: 8),
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -102,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      buildRestoRow(),
+                      buildRestoRow(restoName , restoLogo ),
                       SizedBox(height: 10,),
 
                       buildRestoPicture(urlImg),
@@ -119,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 ],),);
   }
 
-  Row buildRestoRow() {
+  Row buildRestoRow( String restoName, String restoLogo) {
     return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -128,13 +110,13 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               CircleAvatar(
                                 radius: 15,
-                                backgroundImage: NetworkImage("https://cdn.pixabay.com/photo/2014/07/08/13/43/donalds-387237_960_720.jpg"),
+                                backgroundImage: NetworkImage(restoLogo),
                               ),
                               SizedBox(width: 5,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("macdo",
+                                  Text(restoName,
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
