@@ -28,8 +28,8 @@ class CartItem extends StatelessWidget {
             ),
             child: Center(
               child: Container(
-                width: 68.0,
-                height: 68.0,
+                width: 73.0,
+                height: 73.0,
                 decoration: BoxDecoration(
                   color: c1,
                   image: DecorationImage(

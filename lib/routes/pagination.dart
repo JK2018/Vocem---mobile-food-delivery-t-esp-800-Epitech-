@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vocem/screens/cart.dart';
 import 'package:vocem/screens/edit_profile_page.dart';
 import 'package:vocem/screens/screens_index.dart';
 import '../global_vars.dart';
@@ -15,6 +14,7 @@ class _PaginationState extends State<Pagination> {
 
   final tabs = [
     Center(child: HomePage()),
+    //Center(child: DetailsPage()),
     Center(child: SearchPage()),
     Center(child: OrdersPage()),
     Center(child: EditProfilePage(),
