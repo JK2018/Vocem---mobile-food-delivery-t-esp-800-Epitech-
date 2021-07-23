@@ -242,11 +242,14 @@ class _HomePageState extends State<HomePage> {
         Positioned(
             bottom: 20,
             right: 20,
-            child: Icon(
-              Icons.favorite,
-              size: 35,
-              color: Colors.white.withOpacity(0.9),
-            ))
+            child: IconButton(
+              icon: new Icon(Icons.favorite,
+                size: 35,
+                color: Colors.white.withOpacity(0.9),),
+              highlightColor: Colors.pink,
+              onPressed: (){},
+            ),
+        )
       ],
     );
   }
