@@ -380,14 +380,14 @@ class _SearchPageState extends State<SearchPage> {
                 ],
               ),
             ),
-      floatingActionButton: FloatingActionButton(
+      /**floatingActionButton: FloatingActionButton(
         child: Icon(Icons.shopping_cart_outlined),
         backgroundColor: Colors.black,
         onPressed: () {
           navigateToCart(context);
           //details pages
         },
-      ),
+      ),**/
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
