@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:vocem/custom_widgets/custom_widgets_index.dart';
 import 'package:vocem/routes/pagination.dart';
-import 'package:vocem/screens/screens_index.dart';
 
 import '../global_vars.dart';
 
@@ -31,17 +30,13 @@ class _AuthState extends State<Auth> {
   """;
 
   String insertUser = """
-      mutation insertUser(\$name: String!, \$rocket: String!, \$twitter: String!) {
-        insert_users(objects: {
-          name: \$name,
-          rocket: \$rocket,
-          twitter: \$twitter,
+      mutation login(\$username: String!, \$password: String!) {
+        login(objects: {
+          username: \$username,
+          password: \$password,
         }) {
           returning {
-            id
-            name
-            twitter
-            rocket
+            token
           }
         }
       }
@@ -66,7 +61,13 @@ class _AuthState extends State<Auth> {
           // or do something with the result.data on completion
           onCompleted: (dynamic resultData) {
             // Ici je pourrai checker la response du back
+            print("response");
             print(resultData);
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Pagination()),
+                  (Route<dynamic> route) => false,
+            );
           },
         ),
         builder: (
@@ -112,9 +113,8 @@ class _AuthState extends State<Auth> {
                         onPress: () => {
                           signIn(),
                           runMutation({
-                            'name': username,
-                            'rocket': password,
-                            'twitter': '999x',
+                            'username': username,
+                            'password': password,
                           })
                         },
                       ) : BtnCustom(
@@ -198,10 +198,8 @@ class _AuthState extends State<Auth> {
       password=pwdController.text;
     });
     print("SignIn");
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => Pagination()),
-          (Route<dynamic> route) => false,
-    );
+    print(username);
+    print(password);
+
   }
 }
