@@ -1,8 +1,11 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:vocem/api/speech_api.dart';
 import 'package:vocem/custom_widgets/custom_widgets_index.dart';
 import 'package:vocem/routes/pagination.dart';
+import 'package:vocem/speechCmds.dart';
 
 import '../global_vars.dart';
 
@@ -12,6 +15,9 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
+  String text = "";
+  bool isListening = false;
+
   bool signInOrUp = true;
   String username;
   String password;
@@ -138,11 +144,23 @@ class _AuthState extends State<Auth> {
                     ],
                   ),
                 ),
+
               ],
             ),
           );
         },
       ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: AvatarGlow(
+          animate: isListening,
+          endRadius: 75,
+          glowColor: c1,
+          child: FloatingActionButton(
+            child: Icon(isListening? Icons.mic : Icons.mic_none, size: 36),
+            onPressed: toggleRecording,
+          ),
+        ),
+
 
       // FloatingActionButton(
       //   onPressed: () => runMutation({
@@ -202,4 +220,27 @@ class _AuthState extends State<Auth> {
     print(password);
 
   }
+
+  Future toggleRecording()=> SpeechApi.toggleRecording(
+    onResult: (text)=> setState(()=>this.text = text),
+    onListening: (isListening) {
+      setState(() => this.isListening=isListening);
+
+      if(!isListening){
+        Future.delayed(Duration(seconds: 1),(){
+          List comText = Utils.scanText(text);
+          if(comText[0].contains("username")) {
+            setState(() => this.username = comText[1]);
+          }
+          if(comText[0].contains("password")) {
+            setState(() => this.password = comText[1]);
+          }
+        });
+      }
+    }
+  );
+
+
+
+
 }

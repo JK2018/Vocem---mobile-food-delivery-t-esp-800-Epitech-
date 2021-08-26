@@ -27,6 +27,8 @@ dependencies:
   flutter_appauth: ^0.9.1
   flutter_secure_storage: ^3.3.3
   image_picker: ^0.7.5+3
+  speech_to_text: ^3.1.0
+  avatar_glow: ^1.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
